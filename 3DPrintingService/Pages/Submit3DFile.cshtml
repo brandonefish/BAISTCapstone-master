@@ -1,0 +1,35 @@
+﻿@page
+@model CapstoneUI.Pages.Submit3DFileModel
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="push"></div>
+
+<div class="container">
+    <h2>Submit 3D File</h2>
+    <form enctype="multipart/form-data" method="post">
+
+        <label asp-for="FileUpload.FormFile">Upload an .stl or .obj file: </label>
+        <input asp-for="FileUpload.FormFile" name="FormFile" type="file">
+        <br />
+        <br />
+        <label for="ColorSelect">Select a Color: </label>
+        <select name="ColorSelect" asp-for="@Model.ColorSelect">
+            @foreach (var Color in Model.AvailableColors)
+            {
+                <option value="@Color">@Color</option>
+            }
+        </select>
+        <br />
+        <label>Additional Comments: </label>
+        <input type="text" name="Comments" asp-for="@Model.Comments"/>
+        <br />
+        <input asp-page-handler="Upload" class="btn" type="submit" value="Submit">
+        <br/>
+        @Model.Message
+    </form>
+</div>
+
+
+

@@ -1,0 +1,29 @@
+﻿@page
+@model CapstoneUI.Pages.Admin.ViewSearchRequestsModel
+@{
+    ViewData["Title"] = "ViewSearchRequests";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<div class="push"></div>
+<div class="container">
+    <h2>View Search Requests</h2>
+    <form>
+        <table>
+            <thead>
+                <tr>
+                    <th>MultiPart</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            @foreach (var Request in Model.SearchRequests)
+            {
+                <tr>
+                    <td>@Request.MultiPart</td>
+                    <td>@Request.Description</td>
+
+                </tr>
+            }
+        </table>
+    </form>
+</div>

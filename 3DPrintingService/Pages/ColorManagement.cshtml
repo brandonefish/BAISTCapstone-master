@@ -1,0 +1,78 @@
+﻿@page
+@model CapstoneUI.Pages.Admin.ColorManagementModel
+@{
+    ViewData["Title"] = "ColorManagement";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+
+<head>
+    <script>
+        function addOption(){
+            var select = document.getElementById("ColorList");
+            select.options[select.options.length] = new Option('New Element', '0', false, false);
+        }
+
+        function removeOption(){
+            var select = document.getElementById("ColorList");
+            select.options[select.selectedIndex] = null;
+        }
+        function setRemoveText(colorNameRemove, newColor) {
+            alert(newColor);
+            colorNameRemove.Text = newColor;
+        }
+    </script>
+</head>
+
+
+<div class="push"></div>
+<div class="container">
+
+
+
+
+
+    <h2>Color Management</h2>
+
+
+    
+
+    <label>Colors: </label>
+    <ul>
+        @foreach (var Color in Model.AllColors)
+        {
+            
+            <li>@Color.ColorName<input asp-for="Available" type="checkbox" name="Available" id="Available" value="@Color.Available" />@*<label for="Available">@Color.Available</label>*@</li>
+        }
+    </ul>
+    <br />
+
+
+
+    <form method="post" asp-page-handler="AddColor">
+        <label for="ColorName">Add new color: </label>
+        <input type="text" name="ColorName" maxlength="40" />
+        <br />
+        <input type="submit" name="Submit" value="Add Color" />
+
+        @Model.Message
+    </form>
+
+    <form method="post" asp-page-handler="RemoveColor">
+        <label for="ColorNameRemove">Remove color: </label>
+        <input type="text" name="ColorNameRemove" maxlength="40" />
+        <br />
+        <input type="submit" name="Submit" value="Remove Color" />
+        @Model.Message2
+    </form>
+
+
+</div>
+
+<div class="push"></div>
+<div class="push"></div>
+<div class="push"></div>
+<div class="push"></div>
+<div class="push"></div>
+
+

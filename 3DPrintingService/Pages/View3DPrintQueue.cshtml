@@ -1,0 +1,61 @@
+﻿@page
+@model CapstoneUI.Pages.Admin.View3DFilesModel
+@{
+    ViewData["Title"] = "View3DFiles";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+<div class="push"></div>
+<div class="container">
+    <h2>View 3D Print Queue</h2>
+    <form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FileList[0].Id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FileList[0].FileName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FileList[0].FileType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FileList[0].ColorName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FileList[0].Comments)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.FileList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FileType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ColorName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comments)
+                        </td>
+                        <td>
+                            <a asp-page="/Download" asp-route-id="@item.Id">Download</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </form>
+</div>

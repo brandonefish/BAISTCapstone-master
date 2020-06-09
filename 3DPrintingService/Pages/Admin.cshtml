@@ -1,0 +1,48 @@
+﻿@page
+@model CapstoneUI.Pages.Admin.HomeModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+
+    <section id="one" class="wrapper style1 special">
+        <div class="container">
+            <header class="major">
+                <h2>Admin Dashboard</h2>
+            </header>
+            <div class="row 150%">
+                <div class="4u 12u$(medium)">
+                    <section class="box">
+                        <a href="http://localhost:5000/view3dprintqueue">
+                            <i class="icon big rounded color3 fa-eye"></i>
+                            <h3>View 3D Files</h3>
+                        </a>
+                        <p>View currently submitted 3D files awaiting printing.</p>
+                    </section>
+                </div>
+                <div class="4u 12u$(medium)">
+                    <section class="box">
+                        <a href="http://localhost:5000/viewsearchrequests">
+                            <i class="icon big rounded color5 fa-search"></i>
+                            <h3>View Search Requests</h3>
+                        </a>
+                        <p>View search requests submitted by students and submit their requested files.</p>
+                    </section>
+                </div>
+                <div class="4u$ 12u$(medium)">
+                    <section class="box">
+                        <a href="http://localhost:5000/colormanagement">
+                            <i class="icon big rounded fa-tint"></i>
+                            <h3>Color Inventory Management</h3>
+                        </a>
+                        <p>Add new filaments and manage stock.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="push">
+
+        </div>
+    </section>

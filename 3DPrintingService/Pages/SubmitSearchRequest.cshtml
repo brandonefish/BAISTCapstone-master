@@ -1,0 +1,30 @@
+﻿@page
+@model CapstoneUI.Pages.SubmitSearchRequestModel
+@{
+}
+
+<div class="push"></div>
+<div class="container">
+    <h2>Search Request</h2>
+    <form name="SearchRequestForm" method="post" id="SearchRequestForm">
+
+
+
+
+
+
+
+        <label for="MultiPart">Would you like a multiple piece print?</label>
+        <input type="radio" value="No" id="No" name="MultiPart" checked="checked" /><label for="No">No</label><br />
+        <input type="radio" value="Yes" id="Yes" name="MultiPart" /><label for="Yes">Yes</label><br />
+        <br />
+        <label>Provide a short description of what you would like the librarian to find for you: </label>
+        <input asp-for="Description" type="text" name="Description" id="Description" value="@Model.Description" />
+
+        <br />
+        <input type="submit" name="Submit" id="Submit" value="Submit" />
+        <br />
+        @Model.Message
+
+    </form>
+</div>
